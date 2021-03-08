@@ -7,7 +7,7 @@ if __name__ == "__main__":
     pw = input("Input your password\n")
     browser = webdriver.Chrome(CHROME_DRIVER_ADDRESS)
     login_pixiv(browser, account, pw)
-    get_pixiv_mark_image(browser)
+    get_pixiv_mark_image(browser, end_page=1)
     browser.quit()
 
 

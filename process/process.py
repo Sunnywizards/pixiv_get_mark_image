@@ -28,6 +28,8 @@ def get_img(res: dict):
     file_type = "jpg"
 
     img_num = len(res.get("real_link"))
+    HEADERS["referer"] = res.get("refer_link")
+
     for i in range(img_num):
         if file_type == "jpg":
             resp = requests.get(res.get("real_link")[i], headers=HEADERS)
@@ -52,8 +54,6 @@ def load_page(driver):
 
 def login_pixiv(browser, account, pw):
 
-
-    # browser = webdriver.Chrome("chromedriver.exe")
     browser.get("https://www.pixiv.net/")
     login_button = browser.find_element_by_css_selector('.signup-form__submit--login')
     login_button.click()
